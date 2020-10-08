@@ -14,12 +14,14 @@ describe("push", function() {
 		expect(lst.head.val).toBe(5);
 		expect(lst.head.next.val).toBe(10);
 		expect(lst.tail.val).toBe(10);
+		expect(lst.tail.prev.val).toBe(5);
 
 		lst.push(15);
 		expect(lst.length).toBe(3);
 		expect(lst.head.val).toBe(5);
 		expect(lst.head.next.next.val).toBe(15);
 		expect(lst.tail.val).toBe(15);
+		expect(lst.tail.prev.val).toBe(10);
 	});
 });
 
@@ -37,6 +39,7 @@ describe("unshift", function() {
 		expect(lst.head.val).toBe(10);
 		expect(lst.head.next.val).toBe(5);
 		expect(lst.tail.val).toBe(5);
+		expect(lst.tail.prev.val).toBe(10);
 
 		lst.unshift(15);
 		expect(lst.length).toBe(3);
@@ -108,6 +111,7 @@ describe("insertAt", function() {
 		expect(lst.head.next.next.val).toBe(12);
 		expect(lst.head.next.next.next.val).toBe(15);
 		expect(lst.head.next.next.next.next.val).toBe(20);
+		expect(lst.tail.prev.val).toBe(15);
 
 		lst.insertAt(5, 25);
 		expect(lst.head.next.next.next.next.next.val).toBe(25);
